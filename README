@@ -1,0 +1,19 @@
+
+
+ Retrofit
+Retrofit hoitaa HTTP-pyynnöt Androidissa. Se muuttaa Kotlin-interfacen verkkokutsuiksi automaattisesti.
+
+ JSON  dataluokat
+Gson-konvertteri muuttaa API:n palauttaman JSON:n Kotlin-dataluokiksi automaattisesti. Kenttien nimet vastaavat JSON-avaimia.
+
+ Coroutines
+API-kutsu tehdään viewModelScope.launchissa. UI päivittyy automaattisesti kun data saapuu.
+
+ UI-tila
+ViewModel hallitsee WeatherUiState-oliota StateFlow:n avulla. Compose kuuntelee tilaa collectAsState() funktiolla ja piirtää näkymän uudelleen kun tila muuttuu.
+
+ API-key
+1. Avain tallennetaan local.properties-tiedostoon
+2. build.gradle lukee sen buildConfigField kentäksi
+3. Koodi käyttää sitä BuildConfig.WEATHER_API_KEY:n kautta
+4. local.properties on .gitignore:ssa eikä päädy GitHubiin
